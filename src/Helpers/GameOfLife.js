@@ -31,23 +31,26 @@ class GameOfLife {
     const height = grid.length
     const nextGrid = Array.from({ length: height }, () => new Array(width))
 
-    for (let i = 1; i <= width; i++) {
-      for (let j = 1; j <= height; j++) {
+    for (let i = 1; i <= height; i++) {
+      for (let j = 1; j <= width; j++) {
         const neighbours = this.getNeighbours(paddedGrid, i, j)
         const living = neighbours.filter((cell) => cell === 1).length
         if (paddedGrid[i][j] === 0) {
-          living === 3
-            ? (nextGrid[i - 1][j - 1] = 1)
-            : (nextGrid[i - 1][j - 1] = 0)
+          if(living === 3)
+            nextGrid[i-1][j-1] = 1
+          else
+            nextGrid[i-1][j-1] = 0
         } else {
-          living === 2 || living === 3
-            ? (nextGrid[i - 1][j - 1] = 1)
-            : (nextGrid[i - 1][j - 1] = 0)
+          if(living === 2 || living === 3)
+            nextGrid[i-1][j-1] = 1
+          else
+            nextGrid[i-1][j-1] = 0
         }
       }
     }
     return nextGrid
   }
+
 }
 
 module.exports = GameOfLife

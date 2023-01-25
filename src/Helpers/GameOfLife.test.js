@@ -1,7 +1,5 @@
 const GameOfLife = require("./gameOfLife")
 
-
-
 describe('GameOfLife', () => {
   const grid = [[1,1,1],[1,0,0],[0,1,0]]
   const paddedGrid = [[0,0,0,0,0],[0,1,1,1,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,0,0]]
@@ -22,8 +20,28 @@ describe('GameOfLife', () => {
   it('can be played muultiple times', () => {
     const gameOfLife = new GameOfLife()
     const next = gameOfLife.nextGrid(grid)
-    console.log(nextNextGrid)
-    console.log(gameOfLife.nextGrid(next))
     expect(gameOfLife.nextGrid(next)).toEqual(nextNextGrid)
+  })
+  const grid2 = [[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0]]
+  const paddedGrid2 = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,1,1,0,0],[0,0,1,1,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
+  const nextGrid2 = [[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0]]
+  it('second test case for padding', () => {
+    const gameOfLife = new GameOfLife()
+    expect(gameOfLife.addPadding(grid2)).toEqual(paddedGrid2)
+  })
+  it('second test case for nextgrid', () => {
+    const gameOfLife = new GameOfLife()
+    expect(gameOfLife.nextGrid(grid2)).toEqual(nextGrid2)
+  })
+  const grid3 = [[1,1,1,1],[1,1,1,1],[1,1,1,1]]
+  const paddedGrid3 = [[0,0,0,0,0,0],[0,1,1,1,1,0],[0,1,1,1,1,0],[0,1,1,1,1,0],[0,0,0,0,0,0]]
+  const nextGrid3 = [[1,0,0,1],[0,0,0,0],[1,0,0,1]]
+  it('third test case for padding', () => {
+    const gameOfLife = new GameOfLife()
+    expect(gameOfLife.addPadding(grid3)).toEqual(paddedGrid3)
+  })
+  it('third test case for nextgrid', () => {
+    const gameOfLife = new GameOfLife()
+    expect(gameOfLife.nextGrid(grid3)).toEqual(nextGrid3)
   })
 })
