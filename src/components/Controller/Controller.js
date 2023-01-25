@@ -1,9 +1,9 @@
 import './Controller.css'
 
-const Controller = () => {
+const Controller = ( { cellArray, setCellArray } ) => {
 
   const next= () => {
-
+    
   }
 
   const play = () => {

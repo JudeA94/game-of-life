@@ -40,7 +40,7 @@ const Game = () => {
         </div>
       ))}
     </div>
-    <Controller />
+    <Controller cellArray={cellArray} setCellArray={setCellArray}/>
     </>
   )
 }
