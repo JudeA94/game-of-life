@@ -1,4 +1,16 @@
 class GameOfLife {
+
+  resetGrid(rows, columns) {
+    const blankGrid = new Array(rows);
+    for (let i = 0; i < rows; i++) {
+      blankGrid[i] = new Array(columns);
+      for (let j = 0; j < columns; j++) {
+        blankGrid[i][j] = 0;
+      }
+    }
+    return blankGrid
+  }
+
   addPadding(grid) {
     const paddedGrid = new Array(grid.length + 2)
     for (let i = 0; i < paddedGrid.length; i++) {

@@ -7,7 +7,6 @@ import Controller from '../Controller/Controller'
 
 const Game = () => {
   const { columns, rows } = useParams()
-
   const [cellArray, setCellArray] = useState([])
   
   useEffect(() => {
@@ -26,7 +25,6 @@ const Game = () => {
     let newCellArray = [...cellArray]
     newCellArray[rowIndex][colIndex] = 1
     setCellArray(newCellArray)
-    console.log(newCellArray)
   }
 
   return (
@@ -40,7 +38,7 @@ const Game = () => {
         </div>
       ))}
     </div>
-    <Controller cellArray={cellArray} setCellArray={setCellArray}/>
+    <Controller cellArray={cellArray} setCellArray={setCellArray} columns={columns} rows={rows}/>
     </>
   )
 }

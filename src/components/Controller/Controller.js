@@ -1,9 +1,14 @@
 import './Controller.css'
+const GameOfLife = require("../../Helpers/GameOfLife")
 
-const Controller = ( { cellArray, setCellArray } ) => {
 
+const Controller = ( { cellArray, setCellArray, columns, rows } ) => {
+  const game = new GameOfLife()
   const next= () => {
-    
+    console.log(cellArray)
+    const newCellArray = game.nextGrid(cellArray)
+    setCellArray(newCellArray)
+    console.log(cellArray)
   }
 
   const play = () => {
@@ -19,7 +24,8 @@ const Controller = ( { cellArray, setCellArray } ) => {
   }
   
   const reset = () => {
-
+    const blankGrid = game.resetGrid(rows, columns)
+    setCellArray(blankGrid)
   }
 
   return ( 

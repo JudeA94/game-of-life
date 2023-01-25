@@ -5,6 +5,7 @@ describe('GameOfLife', () => {
   const paddedGrid = [[0,0,0,0,0],[0,1,1,1,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,0,0]]
   const nextGrid = [ [ 1, 1, 0 ], [ 1, 0, 1 ], [ 0, 0, 0 ] ]
   const nextNextGrid = [ [ 1, 1, 0 ], [ 1, 0, 0 ], [ 0, 0, 0 ] ]
+  const blankGrid = [[0,0,0],[0,0,0],[0,0,0]]
   it('can add padding of 0s to a given grid', () => {
     const gameOfLife = new GameOfLife()
     expect(gameOfLife.addPadding(grid)).toEqual(paddedGrid)
@@ -21,6 +22,13 @@ describe('GameOfLife', () => {
     const gameOfLife = new GameOfLife()
     const next = gameOfLife.nextGrid(grid)
     expect(gameOfLife.nextGrid(next)).toEqual(nextNextGrid)
+  })
+  it('can reset the grid', () => {
+    const gameOfLife = new GameOfLife()
+    const next = gameOfLife.nextGrid(grid)
+    expect(gameOfLife.nextGrid(next)).toEqual(nextNextGrid)
+    expect(gameOfLife.resetGrid(3,3)).toEqual(blankGrid)
+
   })
   const grid2 = [[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0]]
   const paddedGrid2 = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,1,1,0,0],[0,0,1,1,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
