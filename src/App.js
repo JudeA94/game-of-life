@@ -3,8 +3,8 @@ import StartMenu from './components/StartMenu/StartMenu'
 import Game from './components/Game'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
-import { Routes, Route } from "react-router-dom";
 import {BrowserRouter as Router} from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
