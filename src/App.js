@@ -1,5 +1,5 @@
 import './App.css';
-import StartMenu from './components/StartMenu'
+import StartMenu from './components/StartMenu/StartMenu'
 import Game from './components/Game'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
