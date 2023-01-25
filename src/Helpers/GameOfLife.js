@@ -12,6 +12,20 @@ class GameOfLife {
     return paddedGrid
   }
 
+  getNeighbours = (paddedGrid, i, j) => {
+    return [
+      paddedGrid[i - 1][j - 1],
+      paddedGrid[i][j - 1],
+      paddedGrid[i + 1][j - 1],
+      paddedGrid[i - 1][j],
+      paddedGrid[i + 1][j],
+      paddedGrid[i - 1][j + 1],
+      paddedGrid[i][j + 1],
+      paddedGrid[i + 1][j + 1],
+    ]
+  }
+
+  
 }
 
 module.exports = GameOfLife

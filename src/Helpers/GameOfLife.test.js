@@ -11,4 +11,9 @@ describe('GameOfLife', () => {
     const gameOfLife = new GameOfLife()
     expect(gameOfLife.addPadding(grid)).toEqual(paddedGrid)
   })
+  it('can get Neighbours of a cell', () => {
+    const gameOfLife = new GameOfLife()
+    expect(gameOfLife.getNeighbours(paddedGrid,1,1)).toEqual([0,0,0,0,1,0,1,0])
+  })
+
 })
