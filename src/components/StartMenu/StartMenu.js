@@ -36,7 +36,7 @@ const StartMenu = ( ) => {
         <label htmlFor="height">Height: {rows}</label>
       </div>
       <div className="child">
-        <button onClick={startGame}>Start</button>
+        <button onClick={startGame}>Play</button>
       </div>
     </div>
   )

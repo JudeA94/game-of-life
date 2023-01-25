@@ -3,10 +3,22 @@
   border: 1px solid black;
 }
 
-.cell {
+#cell {
   height: 20px;
   width: 20px;
   background-color: rgb(187, 13, 13);
   border-radius: 50%;
   display: inline-block;
+}
+
+#cell.alive {
+  background-color: green;
+}
+
+#cell.dead {
+  background-color: grey;
+}
+
+.row {
+  height: 20px;
 }
