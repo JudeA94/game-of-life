@@ -3,23 +3,23 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 const StartMenu = ( ) => {
   const navigate = useNavigate()
-  const [width, setWidth] = useState(3)
-  const [height, setHeight] = useState(3)
+  const [columns, setColumns] = useState(3)
+  const [rows, setRows] = useState(3)
   // const [start, setStart] = useState(false)
 
-  const handleWidthChange = (e) => {
+  const handleColumnsChange = (e) => {
     e.preventDefault()
-    setWidth(e.target.value)
+    setColumns(e.target.value)
   }
 
-  const handleHeightChange = (e) => {
+  const handleRowsChange = (e) => {
     e.preventDefault()
-    setHeight(e.target.value)
+    setRows(e.target.value)
   }
 
   const startGame = (e) => {
     e.preventDefault()
-    navigate(`/play/${width}/${height}`)
+    navigate(`/play/${columns}/${rows}`, {columns:columns})
   }
 
   return (
@@ -28,12 +28,12 @@ const StartMenu = ( ) => {
         <h1 className="main-title">Game of Life</h1>
       </div>
       <div className="child">
-        <input type="range" id="height" name="height" min="3" max="10" onChange={handleHeightChange}></input>
-        <label htmlFor="volume">Height: {height}</label>
+        <input type="range" id="width" name="width" min="3" max="100" value={columns} onChange={handleColumnsChange}></input>
+        <label htmlFor="width">Width: {columns}</label>
       </div>
       <div className="child">
-        <input type="range" id="width" name="width" min="3" max="10" onChange={handleWidthChange}></input>
-        <label htmlFor="volume">Width: {width}</label>
+        <input type="range" id="height" name="height" min="3" max="100" value={rows} onChange={handleRowsChange}></input>
+        <label htmlFor="height">Height: {rows}</label>
       </div>
       <div className="child">
         <button onClick={startGame}>Start</button>

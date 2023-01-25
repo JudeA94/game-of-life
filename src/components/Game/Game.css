@@ -1,0 +1,12 @@
+.gameBoard {
+  width: 80%;
+  border: 1px solid black;
+}
+
+.cell {
+  height: 20px;
+  width: 20px;
+  background-color: rgb(187, 13, 13);
+  border-radius: 50%;
+  display: inline-block;
+}
