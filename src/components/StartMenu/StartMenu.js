@@ -19,7 +19,7 @@ const StartMenu = ( ) => {
 
   const startGame = (e) => {
     e.preventDefault()
-    navigate("/play")
+    navigate(`/play/${width}/${height}`)
   }
 
   return (
