@@ -1,24 +1,36 @@
 .gameBoard {
-  width: 80%;
-  border: 1px solid black;
+  display: grid;
+  margin: auto;
+  width: 45%;
+  aspect-ratio : 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1e90ff;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0px 0px 10px #1e90ff;
 }
 
+
 #cell {
-  height: 20px;
-  width: 20px;
-  background-color: rgb(187, 13, 13);
+  background-color: #1e90ff;
   border-radius: 50%;
-  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
 #cell.alive {
-  background-color: green;
+  background-color: #0077be;
 }
 
 #cell.dead {
   background-color: grey;
 }
 
-.row {
-  height: 20px;
+#cell:hover {
+  background-color: #0077be;
+  cursor: pointer;
 }
