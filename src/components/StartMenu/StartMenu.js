@@ -1,6 +1,6 @@
 import './StartMenu.css'
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const StartMenu = ( ) => {
   const navigate = useNavigate()
   const [columns, setColumns] = useState(3)
@@ -21,7 +21,7 @@ const StartMenu = ( ) => {
 
   const startGame = (e) => {
     e.preventDefault()
-    navigate(`/play/${columns}/${rows}`)
+    navigate(`/play/${rows}/${columns}`)
     document.documentElement.style.setProperty('--cell-height', `${Math.floor(cellDimensions)}px`)
     document.documentElement.style.setProperty('--cell-width', `${Math.floor(cellDimensions)}px`)
   }

@@ -14,11 +14,9 @@
 
 
 #cell {
-  background-color: #1e90ff;
   border-radius: 50%;
   width: var(--cell-width);
   height: var(--cell-height);
-  border-radius: 50%;
   transition: all 0.2s ease;
 }
 
@@ -27,7 +25,7 @@
 }
 
 #cell.dead {
-  background-color: rgb(197, 195, 195);
+  background-color: rgb(223, 218, 218);
 }
 
 #cell:hover {
