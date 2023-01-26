@@ -5,17 +5,15 @@ const StartMenu = ( ) => {
   const navigate = useNavigate()
   const [columns, setColumns] = useState(3)
   const [rows, setRows] = useState(3)
-  const [cellDimensions, setCellDimensions] = useState(10)
+  const [cellDimensions, setCellDimensions] = useState(150)
 
-  const handleColumnsChange = (e) => {
-    e.preventDefault()
-    setColumns(e.target.value)
+  const handleColumnsChange = async (e) => {
+    await setColumns(e.target.value)
     setCellDimensions(500 / Math.max(columns,rows))
   }
 
-  const handleRowsChange = (e) => {
-    e.preventDefault()
-    setRows(e.target.value)
+  const handleRowsChange = async (e) => {
+    await setRows(e.target.value)
     setCellDimensions(500 / Math.max(columns,rows))
   }
 
