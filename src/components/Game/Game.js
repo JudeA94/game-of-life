@@ -21,19 +21,19 @@ const Game = () => {
 
   const handleCellClick = (rowIndex, colIndex) => {
     let newCellArray = [...cellArray]
-    newCellArray[rowIndex][colIndex] = 1
+    newCellArray[rowIndex][colIndex] === 0 ? newCellArray[rowIndex][colIndex] = 1: newCellArray[rowIndex][colIndex] = 0
     setCellArray(newCellArray)
   }
 
   return (
     <>
-     <div className="gameBoard" style={{ gridTemplateColumns: `repeat(${columns}, calc(100% /${columns})`, gridTemplateRows: `repeat(${rows}, calc(100& / ${rows}))`}}>
+    <br></br>
+     <div className="gameBoard" >
         {cellArray.map((row, rowIndex) => (
           <div className="row" key={rowIndex}>
             {row.map((cell, colIndex) => (
               <div
                 id="cell"
-                style={{width: `calc(100% / ${columns}))`, height: `calc(100% / ${rows}))`}}
                 className={
                   cellArray[rowIndex][colIndex] === 0 ? 'dead' : 'alive'
                 }
@@ -44,6 +44,7 @@ const Game = () => {
           </div>
         ))}
       </div>
+      <br></br>
       <Controller
         cellArray={cellArray}
         setCellArray={setCellArray}

@@ -1,38 +1,29 @@
 import './Home.css'
+import Video from '../Video/Video'
+
 
 const Home = () => {
   return (
-    <>
-    <div className="info">
-      The Game of Life, also known simply as Life, is a cellular automaton
-      devised by the British mathematician John Horton Conway in 1970. It is
-      a zero-player game, meaning that its evolution is determined by its
-      initial state, requiring no further input. One interacts with the Game of
-      Life by creating an initial configuration and observing how it evolves. It
-      is Turing complete and can simulate a universal constructor or any other
-      Turing machine. Rules The universe of the Game of Life is an infinite,
-      two-dimensional orthogonal grid of square cells, each of which is in one
-      of two possible states, live or dead (or populated and unpopulated,
-      respectively). Every cell interacts with its eight neighbours, which are
-      the cells that are horizontally, vertically, or diagonally adjacent. At
-      each step in time, the following transitions occur: Any live cell with
-      fewer than two live neighbours dies, as if by underpopulation. Any live
-      cell with two or three live neighbours lives on to the next generation.
-      Any live cell with more than three live neighbours dies, as if by
-      overpopulation. Any dead cell with exactly three live neighbours becomes a
-      live cell, as if by reproduction. These rules, which compare the behaviour
-      of the automaton to real life, can be condensed into the following: Any
-      live cell with two or three live neighbours survives. Any dead cell with
-      three live neighbours becomes a live cell. All other live cells die in the
-      next generation. Similarly, all other dead cells stay dead. The initial
-      pattern constitutes the seed of the system. The first generation is
-      created by applying the above rules simultaneously to every cell in the
-      seed, live or dead; births and deaths occur simultaneously, and the
-      discrete moment at which this happens is sometimes called a tick.[nb 1]
-      Each generation is a pure function of the preceding one. The rules
-      continue to be applied repeatedly to create further generations.
+    <div className="infoContainer">
+    <div className="infoChild">
+      <br></br>
+    <Video />
+    <br></br>
     </div>
-    </>
+    <div className ="infoChild">
+    The Game of life is a zero player game developed in the 70's by John Horton Conway. Check out the <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wikipedia article</a> for a full description. The evolving state of the game is determined by the initial configuration - some configurations become infinitely evolving constellations, others eventually evolve into a stable patterns, whilst others die off completely. It is commonly used as a tech test as it can be solved in many different ways that clearly show the level of the programmer.
+
+    The Brief
+    The rules are as follows:
+
+    The game evolves in turns, commonly known as 'ticks'.
+    All changes occur at the same time.
+    Any live cell with 2 or 3 live neighbours survives until next tick.
+    Any live cell with less than 2 live neighbours dies (underpopulation).
+    Any live cell with more than 3 live neighbours dies (overpopulation).
+    Any dead cell with exactly 3 neighbours becomes a live cell (reproduction).
+    </div>
+    </div>
   )
 }
 

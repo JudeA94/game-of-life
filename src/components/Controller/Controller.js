@@ -5,14 +5,14 @@ const GameOfLife = require('../../Helpers/GameOfLife')
 const Controller = ({ cellArray, setCellArray, columns, rows }) => {
   const game = new GameOfLife()
   const [isRunning, setIsRunning] = useState(false)
-  const [refreshRate, setRefreshRate] = useState(1024)
+  const [refreshRate, setRefreshRate] = useState(512)
+  const [proportionFill, setproportionFill] = useState(30)
+  const [error, setError] = useState(null)
 
   
   const next = () => {
-    console.log(cellArray)
     const newCellArray = game.nextGrid(cellArray)
     setCellArray(newCellArray)
-    console.log(cellArray)
   }
 
   useEffect(() => {
@@ -26,7 +26,21 @@ const Controller = ({ cellArray, setCellArray, columns, rows }) => {
   }, [isRunning, cellArray]);
 
   const random = () => {
-    
+    reset()
+    cellArray = createRandomGrid()
+    setCellArray(cellArray)
+  }
+
+  const createRandomGrid = () => {
+    let randomCellArray = []
+    for (let i = 0; i < rows; i++) {
+      let row = []
+      for (let j = 0; j < columns; j++) {
+        Math.random() < proportionFill/100 ? row.push(1) : row.push(0)
+      }
+      randomCellArray.push(row)
+    }
+    return randomCellArray
   }
 
   const playPause = () => {
@@ -34,25 +48,41 @@ const Controller = ({ cellArray, setCellArray, columns, rows }) => {
   }
 
   const speedUp = () => {
-    setRefreshRate(refreshRate/2)
+    if (isRunning) {
+      if (refreshRate < 32) {
+      setError('Maximum speed');
+      setTimeout(() => setError(null), 500)
+     } else {
+      setRefreshRate(refreshRate/2)
+    }
+  }
   }
 
   const slowDown = () => {
-    setRefreshRate(refreshRate*2)
+    if (isRunning) {
+      if (refreshRate > 8192) {
+      setError('Minimum speed');
+      setTimeout(() => setError(null), 500)
+     } else {
+      setRefreshRate(refreshRate*2)
+    } 
+     }
   }
 
   const reset = () => {
     const blankGrid = game.resetGrid(rows, columns)
     setCellArray(blankGrid)
     setIsRunning(false)
-    setRefreshRate(1024)
+    setRefreshRate(512)
+  }
+
+  const handleProportionFillChange = (e) => {
+    setproportionFill(e.target.value)
   }
 
   return (
     <div className="controller">
-      <div className="controllerChild">
-        <button className="button" onClick={random}>Random</button>
-      </div>
+   
       <div className="controllerChild">
         <button className="button" onClick={next}>Next</button>
       </div>
@@ -68,6 +98,13 @@ const Controller = ({ cellArray, setCellArray, columns, rows }) => {
       <div className="controllerChild">
         <button className="button" onClick={reset}>Reset</button>
       </div>
+      <div className="controllerChild">
+      <input type="range" id="proportionFill" name="proportionFill" min="10" max="100" value={proportionFill} onChange={handleProportionFillChange}></input>
+        <label htmlFor="proportionFill">Percentage filled (approx): {proportionFill}</label>      </div>
+      <div className="controllerChild">
+        <button className="button" onClick={random}>Random</button>
+      </div>
+      {error && <p className="error">{error}</p>}
     </div>
   )
 }
