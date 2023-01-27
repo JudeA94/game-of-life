@@ -1,5 +1,5 @@
-import './Home.css'
-import Video from '../Video/Video'
+import './home.css'
+import Video from '../video/video'
 
 const Home = () => {
   return (

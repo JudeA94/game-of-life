@@ -1,4 +1,4 @@
-import './StartMenu.css'
+import './startMenu.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 const StartMenu = ( ) => {

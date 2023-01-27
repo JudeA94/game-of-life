@@ -1,7 +1,7 @@
-import './Game.css'
+import './game.css'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import Controller from '../Controller/Controller'
+import Controller from '../gameController/gameController'
 
 const Game = () => {
   const { columns, rows , type } = useParams()

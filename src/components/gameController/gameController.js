@@ -1,8 +1,8 @@
-import './Controller.css'
+import './gameController.css'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-const FlatGameOfLife = require('../../Helpers/gameOfLife')
-const RoundGameOfLife = require('../../Helpers/gameOfLifeWrapAround')
+const FlatGameOfLife = require('../../helpers/gameOfLife')
+const RoundGameOfLife = require('../../helpers/gameOfLifeWrapAround')
 
 const Controller = ({ cellArray, setCellArray, columns, rows , type }) => {
   const [isRunning, setIsRunning] = useState(false)
