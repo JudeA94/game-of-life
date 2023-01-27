@@ -1,8 +1,8 @@
 import './App.css';
-import StartMenu from './components/StartMenu/StartMenu'
-import Game from './components/Game/Game'
-import Home from './components/Home/Home'
-import NotFound from './components/NotFound/NotFound'
+import StartMenu from './Components/StartMenu/StartMenu'
+import Game from './Components/Game/Game'
+import Home from './Components/home/Home'
+import NotFound from './Components/NotFound/NotFound'
 import {BrowserRouter as Router} from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 
