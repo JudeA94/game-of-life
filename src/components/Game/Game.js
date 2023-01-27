@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Controller from '../Controller/Controller'
 
 const Game = () => {
-  const { columns, rows } = useParams()
+  const { columns, rows , type } = useParams()
   const [cellArray, setCellArray] = useState([])
 
   useEffect(() => {
@@ -50,6 +50,7 @@ const Game = () => {
         setCellArray={setCellArray}
         columns={columns}
         rows={rows}
+        type={type}
       />
     </>
   )

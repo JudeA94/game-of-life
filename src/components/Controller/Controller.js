@@ -1,14 +1,23 @@
 import './Controller.css'
 import { useEffect, useState } from 'react'
-const GameOfLife = require('../../Helpers/GameOfLife')
+import { useNavigate } from 'react-router-dom'
+const FlatGameOfLife = require('../../Helpers/gameOfLife')
+const RoundGameOfLife = require('../../Helpers/gameOfLifeWrapAround')
 
-const Controller = ({ cellArray, setCellArray, columns, rows }) => {
-  const game = new GameOfLife()
+const Controller = ({ cellArray, setCellArray, columns, rows , type }) => {
   const [isRunning, setIsRunning] = useState(false)
   const [refreshRate, setRefreshRate] = useState(512)
   const [proportionFill, setproportionFill] = useState(30)
   const [error, setError] = useState(null)
-
+  const navigate = useNavigate()
+  let game = null
+  if (type === 'flat') {
+    game = new FlatGameOfLife()
+  } else if (type === 'round') {
+    game = new RoundGameOfLife()
+  } else {
+    navigate('/notFound')
+  }
   
   const next = () => {
     const newCellArray = game.nextGrid(cellArray)

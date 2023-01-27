@@ -14,7 +14,7 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/play/:columns/:rows" element={<Game />} />
+          <Route path="/play/:columns/:rows/:type" element={<Game />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

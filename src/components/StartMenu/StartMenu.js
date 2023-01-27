@@ -20,7 +20,8 @@ const StartMenu = ( ) => {
   const upDateCellSize = () => {
     document.documentElement.style.setProperty('--cell-height', `${Math.floor(cellDimensions)}px`)
     document.documentElement.style.setProperty('--cell-width', `${Math.floor(cellDimensions)}px`)
-  } 
+  }
+  
   const handleColumnsChange = (e) => {
     e.preventDefault()
     setColumns(e.target.value)
@@ -31,10 +32,10 @@ const StartMenu = ( ) => {
     setRows(e.target.value)
   }
 
-  const startGame = () => {
+  const startGame = (type) => {
     window.sessionStorage.setItem('cellDimension', cellDimensions)
     upDateCellSize()
-    navigate(`/play/${rows}/${columns}`)
+    navigate(`/play/${rows}/${columns}/${type}`)
   }
 
   return (
@@ -51,7 +52,10 @@ const StartMenu = ( ) => {
         <label htmlFor="height">Height: {rows}</label>
       </div>
       <div className="menuChild">
-        <button className="button" onClick={startGame}>Play</button>
+        <button className="button" onClick={() => startGame('flat')}>Play (earth is flat)</button>
+      </div>
+      <div className="menuChild">
+        <button className="button" onClick={() => startGame('round')}>Play (earth is round)</button>
       </div>
     </div>
   )
