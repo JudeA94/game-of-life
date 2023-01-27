@@ -1,6 +1,9 @@
 # John Conway's Game of Life
 This is a React implementation of John Conway's Game of Life, a cellular automaton simulation that models the behavior of populations 
 
+## About
+I built this app in my free time during my bootcamp at MakersAcademy
+
 ## How to use
 Make sure Node.js and npm are installed  
 Clone or download the repository  
@@ -28,3 +31,7 @@ This project is built using:
 React  
 Node.js  
 Jest  
+
+## Improvements
+The styling of the app could be improved  
+The app is currently not mobile friendly
