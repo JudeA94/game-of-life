@@ -19,9 +19,7 @@ const Home = () => {
           for a full description. The evolving state of the game is determined
           by the initial configuration - some configurations become infinitely
           evolving constellations, others eventually evolve into a stable
-          patterns, whilst others die off completely. It is commonly used as a
-          tech test as it can be solved in many different ways that clearly show
-          the level of the programmer.
+          patterns, whilst others die off completely.
         </p>
         <p>The rules are as follows:</p>
         <p>
