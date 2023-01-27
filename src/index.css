@@ -1,6 +1,6 @@
 :root {
-  --cell-height: 10px;
-  --cell-width: 10px;
+  --cell-height: 5px;
+  --cell-width: 5px;
 }
 
 body {

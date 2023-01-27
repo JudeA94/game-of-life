@@ -1,27 +1,40 @@
 import './StartMenu.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 const StartMenu = ( ) => {
   const navigate = useNavigate()
   const [columns, setColumns] = useState(3)
   const [rows, setRows] = useState(3)
-  const [cellDimensions, setCellDimensions] = useState(150)
+  const [cellDimensions, setCellDimensions] = useState(window.localStorage.getItem('cellDimension'))
 
-  const handleColumnsChange = async (e) => {
-    await setColumns(e.target.value)
+  useEffect(() => {
+    if (window.localStorage.getItem('cellDimension')) {
+      upDateCellSize()
+    } 
+  }, [])
+
+  useEffect(() => {
     setCellDimensions(500 / Math.max(columns,rows))
-  }
+  }, [columns, rows])
 
-  const handleRowsChange = async (e) => {
-    await setRows(e.target.value)
-    setCellDimensions(500 / Math.max(columns,rows))
-  }
-
-  const startGame = (e) => {
-    e.preventDefault()
-    navigate(`/play/${rows}/${columns}`)
+  const upDateCellSize = () => {
     document.documentElement.style.setProperty('--cell-height', `${Math.floor(cellDimensions)}px`)
     document.documentElement.style.setProperty('--cell-width', `${Math.floor(cellDimensions)}px`)
+  } 
+  const handleColumnsChange = (e) => {
+    e.preventDefault()
+    setColumns(e.target.value)
+  }
+
+  const handleRowsChange = (e) => {
+    e.preventDefault()
+    setRows(e.target.value)
+  }
+
+  const startGame = () => {
+    window.localStorage.setItem('cellDimension', cellDimensions)
+    upDateCellSize()
+    navigate(`/play/${rows}/${columns}`)
   }
 
   return (
