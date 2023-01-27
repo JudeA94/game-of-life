@@ -5,10 +5,10 @@ const StartMenu = ( ) => {
   const navigate = useNavigate()
   const [columns, setColumns] = useState(3)
   const [rows, setRows] = useState(3)
-  const [cellDimensions, setCellDimensions] = useState(window.localStorage.getItem('cellDimension'))
+  const [cellDimensions, setCellDimensions] = useState(window.sessionStorage.getItem('cellDimension'))
 
   useEffect(() => {
-    if (window.localStorage.getItem('cellDimension')) {
+    if (window.sessionStorage.getItem('cellDimension')) {
       upDateCellSize()
     } 
   }, [])
@@ -32,7 +32,7 @@ const StartMenu = ( ) => {
   }
 
   const startGame = () => {
-    window.localStorage.setItem('cellDimension', cellDimensions)
+    window.sessionStorage.setItem('cellDimension', cellDimensions)
     upDateCellSize()
     navigate(`/play/${rows}/${columns}`)
   }
