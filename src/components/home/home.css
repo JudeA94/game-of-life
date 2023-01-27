@@ -1,0 +1,19 @@
+.infoContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .infoContainer {
+    width: 90%; /* make the container take up the full width of the screen */
+  }
+}
+
+
+.infoChild {
+  margin: 5px;
+}
